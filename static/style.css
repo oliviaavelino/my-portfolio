@@ -1,0 +1,128 @@
+html{
+  color-scheme: light dark;
+  --color-accent: oklch(65% 50% 60);
+  accent-color: var(--color-accent);
+
+}
+body {
+    /* Set line height to 1.5 times the font size
+       and use the OS’s UI font as the website font
+     */
+    font: 100%/1.5 system-ui;
+    max-width: 100ch;
+    margin-inline: auto;
+    padding: 10ch;
+   }
+
+nav {
+    --border-color: oklch(50% 10% 200 / 40%);
+    display: flex;
+    margin-bottom: 10ch;
+    border-bottom-width: 1px;
+    border-bottom-style: solid;
+    border-bottom-color: var(--border-color);
+
+    .current{
+      border-bottom-style: solid;
+      border-bottom-width: 4px;
+      border-bottom-color: oklch(80% 3% 200);
+    }
+  
+    a:hover{
+      border-bottom-style: solid;
+      border-bottom-width: 4px;
+      border-bottom-color: var(--color-accent);
+    }
+
+}
+
+a{
+  
+  flex: 1;
+  text-decoration: none;
+  color: inherit;
+  text-align: center;
+  padding: 0.5em;
+
+}
+
+form{
+  display: grid;
+  grid-template-columns: auto 1fr;
+  gap: 1em;
+}
+
+label{
+  display:grid;
+  grid-template-columns: subgrid;
+  grid-column: 1 / -1;
+}
+
+image{
+  max-width: 100%;
+}
+
+body{
+  .projects{
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(15em, 1fr));
+    gap: 1em;
+  }
+  .resume{
+    text-align: center;
+  }
+
+}
+
+article{
+  display: grid;
+  grid-template-rows: subgrid;
+  grid-row: span 3;
+  margin: 0;
+}
+
+h1{
+  font-size: 60px;
+  line-height: 1.1;
+  text-wrap: balance;
+}
+
+h1.resume{
+  line-height: 0.3;
+}
+
+h2{
+  line-height: 1.1;
+  text-wrap: balance;
+}
+
+h2.resume{
+  line-height: 0.3;
+}
+
+h3{
+  line-height: 1.1;
+  text-wrap: balance;
+}
+
+h3.resumebody{
+  line-height: 0.8;
+}
+
+h4{
+  line-height: 1.1;
+  text-wrap:balance;
+}
+
+h5.resumebody{
+  line-height: 0;
+  text-wrap: balance;
+}
+
+label.color-scheme{
+  position: absolute;
+  top: 1rem;
+  right: 1rem;
+  font-size: 80%;
+  font-family: inherit;
+}
