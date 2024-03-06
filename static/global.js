@@ -10,7 +10,7 @@ let currentLink = navLinks.find(a => a.host === location.host && a.pathname === 
 currentLink?.classList.add("current");
 
 let pages = [
-	{url: ".", title: "Home"},
+	{url: "./", title: "Home"},
 	{url: "projects", title: "Projects"},
     {url: "resume", title: "Resume"},
     {url: "contact", title: "Contact"},
