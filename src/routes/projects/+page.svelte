@@ -1,6 +1,6 @@
 <script>
     import projects from '$lib/projects.json';
-    import Project from "$lib/Project.svelte";
+    import Project from "$lib/Projects.svelte";
 </script>
 
 <svelte:head>
