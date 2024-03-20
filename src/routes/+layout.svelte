@@ -8,6 +8,10 @@
         {url: "contact", title: "Contact"},
         {url: "https://github.mit.edu/oavelino", title: "Github"}
     ]
+
+    let colorScheme = "light dark"
+    let root = globalThis?.document?.documentElement;
+    $: root?.style.setProperty("color-scheme", colorScheme);
 </script>
 
 <style>
@@ -25,7 +29,7 @@
 
 <label class="color-scheme">
     Theme:
-    <select>
+    <select bind:value={ colorScheme }>
         <option value="light dark">Default</option>
         <option value="light">Light</option>
         <option value="dark">Dark</option>
