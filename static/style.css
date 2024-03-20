@@ -118,11 +118,3 @@ h5.resumebody{
   line-height: 0;
   text-wrap: balance;
 }
-
-label.color-scheme{
-  position: absolute;
-  top: 1rem;
-  right: 1rem;
-  font-size: 80%;
-  font-family: inherit;
-}

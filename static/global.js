@@ -19,16 +19,16 @@ let pages = [
 
 
 
-document.body.insertAdjacentHTML("afterbegin", `
-	<label class="color-scheme">
-		Theme:
-		<select>
-            <option value="light dark">Default</option>
-            <option value="light">Light</option>
-            <option value="dark">Dark</option>
-		</select>
-	</label>`
-);
+// document.body.insertAdjacentHTML("afterbegin", `
+// 	<label class="color-scheme">
+// 		Theme:
+// 		<select>
+//             <option value="light dark">Default</option>
+//             <option value="light">Light</option>
+//             <option value="dark">Dark</option>
+// 		</select>
+// 	</label>`
+// );
 
 
 let select = document.querySelector("select")
