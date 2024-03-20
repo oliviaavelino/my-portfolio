@@ -17,8 +17,7 @@ let pages = [
     {url: "https://github.mit.edu/oavelino", title: "Github"}
 ];
 
-let nav = document.createElement("nav");
-document.body.prepend(nav);
+
 
 document.body.insertAdjacentHTML("afterbegin", `
 	<label class="color-scheme">
