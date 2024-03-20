@@ -16,3 +16,4 @@
 	{/each}
 </nav>
 
+<slot />
