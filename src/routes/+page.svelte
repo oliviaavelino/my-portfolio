@@ -13,3 +13,21 @@
     <Project info={p} hlevel=3/>
     {/each}
 </div>
+
+{#await fetch("https://api.github.com/users/oliviaavelino") }
+	<p>Loading...</p>
+{:then response}
+	{#await response.json()}
+		<p>Decoding...</p>
+	{:then data}
+		<p>The data is { JSON.stringify(data) }</p>
+	{:catch error}
+		<p class="error">
+			Something went wrong: {error.message}
+		</p>
+	{/await}
+{:catch error}
+	<p class="error">
+		Something went wrong: {error.message}
+	</p>
+{/await}
