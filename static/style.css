@@ -118,3 +118,18 @@ h5.resumebody{
   line-height: 0;
   text-wrap: balance;
 }
+
+dl{
+  display: block;
+  grid-template-columns: auto 1fr;
+  grid-row: span 2;
+  gap: 1em;
+}
+
+dd{
+  text-align: left;
+}
+
+dt{
+  font-size: smaller;
+}
