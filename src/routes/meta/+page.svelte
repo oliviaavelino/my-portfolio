@@ -5,6 +5,7 @@
     let data = [];
     let commits = [];
     let averageFileLength;
+    let width = 1000, height = 600;
 
     onMount(async () => {
 	    data = await d3.csv("loc.csv", row => ({
@@ -38,12 +39,42 @@
 
             return ret;
         });
+        xScale = d3.scaleTime()
+		.domain([0, d3.max(commits, (d) => d.date)])
+		.range([0, width]);
+
+        yScale = d3.scaleLinear()
+		.domain([0, d3.max(commits, (d) => commits.time)])
+		.range([0, height]);
+
+
         let fileLengths = d3.rollups(data, v => d3.max(v, v => v.line), d => d.file);
         averageFileLength = d3.mean(fileLengths, d => d[1]);
         
     });
 
 </script>
+
+<style>
+    dl{
+    display: block;
+    grid-template-columns: auto 1fr;
+    grid-row: span 2;
+    gap: 1em;
+    }
+
+    dd{
+    text-align: left;
+    }
+
+    dt{
+    font-size: smaller;
+    }
+
+	svg {
+		overflow: visible;
+	}
+</style>
 
 <svelte:head>
     <title>Meta</title>
@@ -60,7 +91,20 @@
     <dt>Number of Files</dt>
     <dd>{d3.group(data, d => d.file).size}</dd>
     <dt>Avg Lines/Commit</dt>
-    <dd>{d3.mean(commits, d => d.totalLines)}</dd>
+    <dd>{Math.round(d3.mean(commits, d => d.totalLines))}</dd>
     <dt>Avg File Length</dt>
-    <dd>{Math.round(averageFileLength * 10)/10}</dd>
+    <dd>{Math.round(averageFileLength)}</dd>
 </dl>
+<svg viewBox="0 0 {width} {height}">
+    <g class="dots">
+        {#each commits as commit, index }
+            <circle
+                cx={ xScale(commit.datetime) }
+                cy={ yScale(commit.hourFrac) }
+                r="5"
+                fill="steelblue"
+            />
+        {/each}
+    </g>
+</svg>
+

@@ -13,6 +13,7 @@
     <Project info={p} hlevel=3/>
     {/each}
 </div>
+<h2>Github Stats</h2>
 
 {#await fetch("https://api.github.com/users/oliviaavelino") }
 	<p>Loading...</p>
@@ -20,7 +21,20 @@
 	{#await response.json()}
 		<p>Decoding...</p>
 	{:then data}
-		<p>The data is { JSON.stringify(data) }</p>
+		<dl>
+			<dt>Public Repos: </dt>
+			<dd>{ data.public_repos }</dd>
+
+			<dt>Followers: </dt>
+			<dd>{ data.followers }</dd>
+
+			<dt>Following: </dt>
+			<dd>{ data.following }</dd>
+
+			<dt>Public Gists: </dt>
+			<dd>{ data.public_gists }</dd>
+		
+		</dl>
 	{:catch error}
 		<p class="error">
 			Something went wrong: {error.message}
